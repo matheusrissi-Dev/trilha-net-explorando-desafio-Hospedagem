@@ -15,16 +15,18 @@ namespace DesafioProjetoHospedagem.Models
 
         public void CadastrarHospedes(List<Pessoa> hospedes)
         {
-            // TODO: Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
-            // *IMPLEMENTE AQUI*
+            // Complete: Verificar se a capacidade é maior ou igual ao número de hóspedes sendo recebido
+
+            bool capacidadeDeHospedesPorSuite = Suite.Capacidade >= hospedes.Count() ? true : false;
+
             if (true)
             {
                 Hospedes = hospedes;
             }
             else
             {
-                // TODO: Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido
-                // *IMPLEMENTE AQUI*
+                // Complete: Retornar uma exception caso a capacidade seja menor que o número de hóspedes recebido
+                throw new Exception("Capacidade menor menor que o número de hóspedes permitidos");
             }
         }
 
@@ -35,26 +37,20 @@ namespace DesafioProjetoHospedagem.Models
 
         public int ObterQuantidadeHospedes()
         {
-            // TODO: Retorna a quantidade de hóspedes (propriedade Hospedes)
-            // *IMPLEMENTE AQUI*
-            return 0;
+            // Completed: Retorna a quantidade de hóspedes (propriedade Hospedes)
+            return Hospedes.Count();
         }
 
         public decimal CalcularValorDiaria()
         {
-            // TODO: Retorna o valor da diária
+            // Complete: Retorna o valor da diária
             // Cálculo: DiasReservados X Suite.ValorDiaria
-            // *IMPLEMENTE AQUI*
-            decimal valor = 0;
+            decimal valorTotal = 0;
 
             // Regra: Caso os dias reservados forem maior ou igual a 10, conceder um desconto de 10%
-            // *IMPLEMENTE AQUI*
-            if (true)
-            {
-                valor = 0;
-            }
+            valorTotal = DiasReservados >= 10 ? DiasReservados * Suite.ValorDiaria * 1 - (10/100) : DiasReservados * Suite.ValorDiaria;
 
-            return valor;
+            return valorTotal;
         }
     }
 }
